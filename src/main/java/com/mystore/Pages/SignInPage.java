@@ -8,11 +8,11 @@ import com.Actiondriver.ActionClass;
 import com.BaseClass.BaseClass;
 
 public class SignInPage extends BaseClass {
-	
+
 	ActionClass act ;
 	private @FindBy(id="email") WebElement emailTab ;
 	private @FindBy(id="passwd") WebElement passwordTab ;
-	private @FindBy(id="SubmitLogin") WebElement submitLogin ;
+	private @FindBy(xpath="//button[@id='SubmitLogin']") WebElement submitLogin ;
 	private @FindBy(id="email_create") WebElement emailAccountCreateInputTab ;
 	private @FindBy(id="SubmitCreate") WebElement createNewAccountButton ;
 
@@ -24,7 +24,8 @@ public class SignInPage extends BaseClass {
 		act.type(emailTab, uname) ;
 		act.type(passwordTab, pass);
 		act.scrollByVisibilityOfElement(driver, submitLogin);
-		act.click(driver, submitLogin);
+		act.JSClick(driver, submitLogin);
+		//		act.click(driver, submitLogin);
 		return new HomePage(); 
 
 	}
